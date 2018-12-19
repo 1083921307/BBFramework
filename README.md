@@ -6,7 +6,12 @@
 
 ## 资源管理模块 (UILoader)
 
-[接口](./doc/日志模块.md)
+## 视图管理模块 ViewManager
+
+[接口](./doc/视图管理模块.md)
+
+
+[接口](./doc/资源管理模块.md)
 
 ## UI自动绑定模块 UIBind
 
@@ -16,9 +21,7 @@
 
 [接口](./doc/日志模块.md)
 
-## 视图管理模块 ViewManager
 
-[接口](./doc/日志模块.md)
 
 ## 场景管理模块 SceneManager
 
