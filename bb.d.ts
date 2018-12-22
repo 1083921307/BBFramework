@@ -86,7 +86,7 @@ declare module bb {
     export module UIBind {
         export function  bindComponent(component: cc.Component, options: object = null);
         export function  bindNode(node : cc.Node, target: cc.Component, options: object = null) : void;
-        export function getComponentName(component : cc.Component);
+        export function  getComponentName(component : cc.Component);
     }
     export module ViewManager {
         export function removeView(node: bb.ViewCtrl);
