@@ -1,20 +1,88 @@
 
 declare module bb {
-    export function log(msg: string);
-    export function log2(msg: string);
-    export function info(msg: string);
-    export function info2(msg: string);
-    export function info3(msg: string);
-    export function warn(msg: string);
-    export function error(msg: string);
-    export function _T(key: number);
-    export class BaseComponent extends cc.Component{
-        viewCtrl: bb.ViewCtrl;
-        onEnter(): void;
-        onExit(): void;
+    export enum UI_ACTION_IN {
+        NONE,
+        SCALE_IN,
+        MOVE_RIGHT_IN,
+        MOVE_LEFT_IN,
+        MOVE_UP_IN,
+        MOVE_DOWN_IN,
     }
 
-    export class SceneComponent extends cc.Component{
+    export enum UI_ACTION_OUT {
+        NONE,
+        SCALE_OUT,
+        MOVE_RIGHT_OUT,
+        MOVE_LEFT_OUT,
+        MOVE_UP_OUT,
+        MOVE_DOWN_OUT,
+    }
+
+    export enum LOG {
+        NONE,
+        NOMAL,
+        INFO,
+        WARIN,
+        ERROR,
+    }
+
+
+    export var logLevel: number;
+    export var logEnable: boolean;
+    export var logCache: string[];
+
+    // 普通输出
+    export function log(msg: string)
+    export function info(msg)
+    // 输出 警告
+    export function logW(msg: string)
+    // 输出 错误
+    export function logE(msg: string)
+
+
+    export class BaseComponent extends cc.Component {
+        actionInId: bb.UI_ACTION_IE;
+        actionOutId: bb.UI_ACTION_OUT;
+        uiCtrl: bb.UICtrl
+        onEnter()
+        onExit()
+    }
+
+    
+
+
+    export class BasePool {
+        constructor(prefab: cc.Prefab, num: number);
+        get(): cc.Node;
+        put(target: cc.Node): void;
+        count(): number;
+        size(): number;
+        clear(): void;
+    }
+
+    export module PoolManager {
+        export function addPool(name: string, pool: bb.BasePool);
+        export function getPool(name: string);
+        export function getPoolByName(name: string, prefab: cc.Prefab);
+        export function getPoolNode(name: string);
+        export function putPoolNode(name: string, target: cc.Node);
+        export function removePool(name: string);
+    }
+
+    export class BaseModel {
+        initModel();
+        saveItem(key: string, item: any);
+        getItem(key: string);
+        removeItem(key: string);
+    }
+
+    export module ObjectManager {
+        export function addModel(name: string, model: typeof bb.BaseModel);
+        export function removeModel(name: string);
+        export function getModelByName(name: string, model: typeof bb.BaseModel): bb.BaseModel;
+    }
+
+    export class SceneComponent extends cc.Component {
         sceneCtrl: bb.SceneCtrl = null;
         initBind(): void;
         onEnter(): void;
@@ -32,8 +100,8 @@ declare module bb {
         showView(): void;
         destroyNode(): void;
         addSubViewCtrl(subViewCtrl: bb.ViewCtrl): void;
-        popSubView(depth?: number): void 
-        popView(depth?: number): void 
+        popSubView(depth?: number): void
+        popView(depth?: number): void
     }
 
     export class SceneCtrl {
@@ -63,39 +131,39 @@ declare module bb {
 
         export function releaseMusicRes(res: string): void;
         export function retatinRes(res: string);
-    
+
         export function retainArrayRes(res: string[]);
 
         export function retainNodeRes(node: cc.Node);
 
         export function releaseNodeRes(node: cc.Node);
 
-        export function  releaseRes(res: string);
+        export function releaseRes(res: string);
 
-        export function  releaseArrayRes(res: string[]);
-        
+        export function releaseArrayRes(res: string[]);
+
         export function getCacheCount(): number;
 
-        
+
 
         export function updateSpriteTexture(target: cc.Node, spriteFrame: cc.SpriteFrame): void;
         export function updateButtonTexture(target: cc.Node, normalSprite?: cc.SpriteFrame, pressedSprite?: cc.SpriteFrame, hoverSprite?: cc.SpriteFrame, disabledSprite?: cc.SpriteFrame);
-        export function  gc();
+        export function gc();
     }
 
     export module UIBind {
-        export function  bindComponent(component: cc.Component, options: object = null);
-        export function  bindNode(node : cc.Node, target: cc.Component, options: object = null) : void;
-        export function  getComponentName(component : cc.Component);
+        export function bindComponent(component: cc.Component, options: object = null);
+        export function bindNode(node: cc.Node, target: cc.Component, options: object = null): void;
+        export function getComponentName(component: cc.Component);
     }
     export module ViewManager {
         export function removeView(node: bb.ViewCtrl);
-        export function showView(name: string,  prefab: cc.Prefab, data: any): bb.ViewCtrl;
+        export function showView(name: string, prefab: cc.Prefab, data: any): bb.ViewCtrl;
         export function showViewSync(pathStr: string, data: any, callback?: Function);
-        export function showSubView(name: string,  prefab: cc.Prefab, data: any):  bb.ViewCtrl; 
-        export function showSubViewSync(pathStr: string, data: any,  callback: Function);
-        export function showItem(name: string,  prefab: cc.Prefab, data: any, parent: cc.Node, parentViewCtrl: bb.ViewCtrl);
-        export function showItemSync(pathStr: string, data: any,  parent: cc.Node, parentViewCtrl: bb.ViewCtrl, callback: Function);
+        export function showSubView(name: string, prefab: cc.Prefab, data: any): bb.ViewCtrl;
+        export function showSubViewSync(pathStr: string, data: any, callback: Function);
+        export function showItem(name: string, prefab: cc.Prefab, data: any, parent: cc.Node, parentViewCtrl: bb.ViewCtrl);
+        export function showItemSync(pathStr: string, data: any, parent: cc.Node, parentViewCtrl: bb.ViewCtrl, callback: Function);
         export function popView(depth?: number);
     }
 
@@ -105,19 +173,19 @@ declare module bb {
     }
 
     export module AudioManager {
-        export function  playMusic(audioclip: cc.AudioClip, loop: boolean);
-        export function  playMusicSync(path: string, loop: boolean);
-        export function  playEffect(audioclip: cc.AudioClip, immediately: boolean);
-        export function  playEffectSync(path: string, immediately: boolean);
-        export function  setEffectsVolume(volume: number);
-        export function  setMusicVolume(volume: number);
-        export function  stopMusic();
-        export function  stopEffect();
+        export function playMusic(audioclip: cc.AudioClip, loop: boolean);
+        export function playMusicSync(path: string, loop: boolean);
+        export function playEffect(audioclip: cc.AudioClip, immediately: boolean);
+        export function playEffectSync(path: string, immediately: boolean);
+        export function setEffectsVolume(volume: number);
+        export function setMusicVolume(volume: number);
+        export function stopMusic();
+        export function stopEffect();
     }
 
     export module SceneManager {
         export function loadScene(scene: string, data?: any);
     }
 
-   
+
 }

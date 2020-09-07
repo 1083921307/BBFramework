@@ -3,7 +3,7 @@ interface IEvent {
     type: number,
     priority: number, 
     class_id: string,
-    callback: (data) => void
+    callback: (data: any) => void
 } 
 
 export default class EventManager {

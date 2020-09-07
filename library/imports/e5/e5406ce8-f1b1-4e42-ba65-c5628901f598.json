@@ -1,0 +1,10 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "localization_zh",
+  "_objFlags": 0,
+  "_native": "",
+  "json": {
+    "1001": "水电费是否地方",
+    "1002": "大股东给对方"
+  }
+}

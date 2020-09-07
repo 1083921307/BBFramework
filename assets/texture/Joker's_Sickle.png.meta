@@ -1,13 +1,18 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.5",
   "uuid": "5b070206-ded4-44fd-abfa-5f394f8962db",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 288,
+  "height": 403,
+  "platformSettings": {},
   "subMetas": {
     "Joker's_Sickle": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b075540e-76fa-4bc8-b4fd-59e1896565d5",
       "rawTextureUuid": "5b070206-ded4-44fd-abfa-5f394f8962db",
       "trimType": "auto",

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "slider_level_barRed",
+    "texture": "1cf58e15-59c3-4020-842a-bf13df4e1d44",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      38,
+      26
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      38,
+      26
+    ],
+    "capInsets": [
+      18,
+      12,
+      18,
+      12
+    ]
+  }
+}

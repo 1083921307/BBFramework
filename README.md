@@ -1,42 +1,53 @@
-# 虣虣游戏框架教程(让游戏开发变得更简单)
+# BBFramework(让游戏开发变得更简单)
 
-CocosCreator 版本采用的是 2.0.6 版
+BBFreamework是针对使用CocosCreator开发的一套休闲游戏框架，适用于中小型项目使用。BBFreamework可以帮助开发者组织代码，以及业务结构，让项目更好维护和拓展，提高开发效率。
 
-## 日志输出模块 AppLog
+## 简略架构图
+BBFramework一共分为10大模块
+- 视图管理者(ViewManager)
+- 音乐音效管理者(AudioManager)
+- 日志管理者(LogHelper)
+- 数据模型管理者(ObjectManager)
+- 事件派发管理者(EventManager)
+- 节点缓存池管理者(PoolManager)
+- 网络模型管理者(NetManager)
+- 多场景管理者(SceneManager)
+- 文本加载管理者(TemplateManager)
+- 基于CocosCreator的功能库
 
-[日志模块](./doc/日志模块.md)
+![](./img/BBFreamwork_01.png)
 
-## 资源管理模块 (UILoader)
+## 暂时屏蔽功能(需要完善的功能)
 
-[资源管理模块](./doc/资源管理模块.md)
+- 网络模型管理者(NetManager)
+- 文本加载管理者(TemplateManager)
+- 基于CocosCreator的功能库
 
-## 视图管理模块 ViewManager
+## 如何使用 BBFreamwork 
 
-[视图管理模块](./doc/视图管理模块.md)
+BBFreamwork 提供的UI框架全部在bb命名空间下,例如日志输出
 
-## 事件派发模块 EventManager
+```typescripts
 
-[事件派发模块](./doc/事件派发模块.md)
+// 日志输出
+bb.log("hello world!!");
+bb.info("hello world!!");
+bb.logW("hello world!!");
+bb.logE("hello world!!");
+
+```
+如何加载一个界面
+
+```typescripts
+ bb.ViewManager.showView(name: string,  prefab: cc.Prefab, data: any): bb.ViewCtrl 
+```
 
 
-## UI自动绑定模块 UIBind
+## 展望未来
 
-[UI自动绑定模块](./doc/UI自动绑定模块.md)
+目前 BBFreamwork 框架还有些不足，也欢迎更多开发者反馈问题，后期会不断的完善 BBFreamwork 框架并提供一些基于CocosCreator的功能库，提供一些更多的 Demo，如果你有使用 BBFreamwork 框架开发的作品并且有一点的想法欢迎你通过微信公众号联系作者。
 
+## 
 
-## 场景管理模块 SceneManager
-
-[场景管理模块](./doc/场景管理模块.md)
-
-## 音乐音效模块 AudioManager
-
-[音乐音效模块](./doc/音乐音效模块.md)
-
-## 数据本地化模块 Localization
-
-[数据本地化模块](./doc/数据本地化模块.md)
-
-## 网络模块 
-
-[网络模块](./doc/网络模块.md)
-
+关注微信公众号【游戏讲坛】，会分享游戏全栈开发中的疑难杂症
+![](./img/weixingongzhonghao.jpg)

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Joker's_Sickle",
+    "texture": "5b070206-ded4-44fd-abfa-5f394f8962db",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      288,
+      403
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      288,
+      403
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
