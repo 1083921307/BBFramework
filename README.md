@@ -15,7 +15,7 @@ BBFramework一共分为10大模块
 - 文本加载管理者(TemplateManager)
 - 基于CocosCreator的功能库
 
-![](./img/BBFreamwork_01.png)
+![图1](./img/BBFreamwork_01.png)
 
 ## 暂时屏蔽功能(需要完善的功能)
 
@@ -50,4 +50,4 @@ bb.logE("hello world!!");
 ## 
 
 关注微信公众号【游戏讲坛】，会分享游戏全栈开发中的疑难杂症
-![](./img/weixingongzhonghao.jpg)
+![图2](./img/weixingongzhonghao.jpg)
